@@ -32,7 +32,7 @@ export default async function AboutPage() {
           </p>
         </div>
         <p className="text-muted-foreground text-lg py-4">
-        I'm a data scientist with a background in marketing, including founding two companies
+        I&apos;m a data scientist with a background in marketing, including founding two companies
         and over five years as a marketing director. My expertise includes
         identifying and leading data-oriented marketing projects. I have practical 
         experience as the lead developer on recommendation
