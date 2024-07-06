@@ -32,11 +32,12 @@ export default async function AboutPage() {
           </p>
         </div>
         <p className="text-muted-foreground text-lg py-4">
-        I&apos;m a data scientist with a background in marketing, including founding two companies
-        and over five years as a marketing director. My expertise includes
-        identifying and leading data-oriented marketing projects. I have practical 
-        experience as the lead developer on recommendation
-        engines, data pipelines, and predictive models.
+       I specialize in identifying data-oriented marketing projects and leading them to completion. 
+      I have technical experience
+         as the lead developer on recommendation systems, fraud detection systems, 
+         and building enterprise data warehouses. I also have
+        practical leadership experience as a founder of a marketing agency and 
+        as a director at a large ecommerce company.
         </p>
       </div>
     </div>
