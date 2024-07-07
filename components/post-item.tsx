@@ -1,8 +1,10 @@
 import { Calendar } from "lucide-react";
+import Image from 'next/image';
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { cn, formatDate } from "@/lib/utils";
 import { Tag } from "./tag";
+
 
 interface PostItemProps {
   slug: string;
