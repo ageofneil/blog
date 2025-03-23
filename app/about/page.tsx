@@ -32,12 +32,13 @@ export default async function AboutPage() {
           </p>
         </div>
         <p className="text-muted-foreground text-lg py-4">
-       I specialize in identifying data-oriented marketing projects and leading them to completion. 
-      I have technical experience
-         as the lead developer on recommendation systems, fraud detection systems, 
-         and building enterprise data warehouses. I also have
-        practical leadership experience as a founder of a marketing agency and 
-        as a director at a large ecommerce company.
+        I’ve always liked digging into how people behave, running little experiments, 
+        and building things that (hopefully) work. I’m into the technical side like data pipelines,
+         automation, all that. But I also enjoy the creative process that ties it all together. 
+         This is where I drop things I’m curious about, building, exploring, or just trying out (if I ever actually remember to post).
+        </p>
+        <p className="text-muted-foreground text-lg py-4">
+        This is where I drop things I’m curious about, building, exploring, or just trying out (if I ever actually remember to post).
         </p>
       </div>
     </div>
