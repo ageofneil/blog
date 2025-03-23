@@ -32,14 +32,13 @@ export default async function AboutPage() {
           </p>
         </div>
         <p className="text-muted-foreground text-lg py-4">
-        I’ve always liked digging into how people behave, running little experiments, 
-        and building things that (hopefully) work. I’m into the technical side like data pipelines,
-         automation, all that. But I also enjoy the creative process that ties it all together. 
-         This is where I drop things I’m curious about, building, exploring, or just trying out (if I ever actually remember to post).
-        </p>
-        <p className="text-muted-foreground text-lg py-4">
-        This is where I drop things I’m curious about, building, exploring, or just trying out (if I ever actually remember to post).
-        </p>
+          I’ve always liked digging into how people behave, running little experiments, 
+          and building things that (hopefully) work. I’m into the technical side like data pipelines,
+          automation, all that. But I also enjoy the creative process that ties it all together.
+          <br />
+          <br />
+          This is where I drop things I’m curious about, building, exploring, or just trying out (if I ever actually remember to post).
+        </p>     
       </div>
     </div>
   );
