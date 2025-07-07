@@ -1,0 +1,207 @@
+---
+title: The Prediction Scam: How Big Tech Uses AI to Fake Ad Performance
+description: Discover how ad platforms like Meta and Google use AI to taking credit for purchases you were already going to make. This reveals the truth behind ad performance dashboards and the illusion of data driven descision making in digital advertising.
+date: 2025-07-07
+tags: ["marketing"]
+published: true
+---
+
+You just participated in the most profitable scam in history. A trick so effective, it props up hundreds of billions in ad revenue every year.
+
+And no, it’s not that one weird trick your doctor doesn't want you to know about. It’s the backbone of companies like Meta, Google, and TikTok.
+
+And you probably didn’t even notice it. Maybe you saw an ad before this article. You skipped it. Moved on. That was all it took.
+
+Because the scam isn’t the ad. It’s the algorithm behind the ad. It doesn’t persuade you. It doesn’t change your mind. It waits. Watches. And takes credit.
+
+## How Your Data Feeds the Machine
+
+When a business runs ads on Meta, TikTok, or Google, they install that platform’s tracking script on their website.
+
+That script turns the site into a live data feed. Every scroll. Every product view. Every cart. All sent back, in near real time, to the platform’s machine learning engine.
+
+Let’s walk through what that actually looks like.
+
+You’re browsing online for headphones.
+
+You visit a brand’s website. Scroll. Click a product. Maybe even add it to your cart, but you don’t buy.
+
+What you don’t see is that the business is sending all that behavior, every click and hesitation, back to Meta.
+
+Meta runs that data through its predictive model. It assigns you a score — your probability to purchase.
+
+If you cross a certain threshold, based on factors like your behavior, past ad interactions, and even the business’s ROAS targets, the algorithm decides you’re “worth spending on.”
+
+So the next time you’re on Instagram, boom, you see the ad.
+
+You don’t click it. You were probably going to buy anyway. But now, Meta logs that impression, and when you eventually check out, it takes the win.
+
+That’s the trick.
+
+The platform isn’t selling ads. It’s selling outcomes.
+
+The ad isn’t there to persuade you to buy. It’s there to persuade a marketing team that it did.
+
+## How the Scam Actually Works
+
+Once platforms like Google or Meta have your data, the real operation kicks in. They build machine learning models, trained on millions of user sessions, to guess exactly what you’re about to do next.
+
+It sounds helpful at first. “We’ll show the right ad to the right person at the right time.” But most of the time, that’s not what they’re doing. Here’s how it works:
+
+### Step 1: Clickstream Data
+
+Every action you take is logged as a sequence of events and willingly passed on from a business to ad networks like Meta. It might look like this:
+
+```
+user_pseudo_id       event_timestamp       event_name         page_location                       item_name      engagement_time_msec
+839a1cfe29d3f8       2024-07-07 12:01:05   scroll             https://store.google.com/home       —              5000
+839a1cfe29d3f8       2024-07-07 12:02:18   view_item          https://store.google.com/bidets     Classic 3000   11000
+839a1cfe29d3f8       2024-07-07 12:03:12   add_to_cart        https://store.google.com/cart       Classic 3000   3000
+839a1cfe29d3f8       2024-07-07 12:04:04   begin_checkout     https://store.google.com/checkout   Classic 3000   8000
+839a1cfe29d3f8       2024-07-07 12:04:47   remove_from_cart   https://store.google.com/checkout   Classic 3000   2000
+```
+
+### Step 2: Feature Engineering
+
+Once you’ve collected raw event data, the next step is to transform that chaos into structured signals the model can learn from.
+
+This process is called feature engineering. The goal is to summarize behavior in a way that makes it easier for the model to spot patterns.
+
+Here’s an example:
+
+```
+user_pseudo_id       product_views   time_on_checkout_sec   cart_abandonment   returned_within_24h   category_engagement_bidets   label_purchase
+839a1cfe29d3f8       3               22                     True               Yes                   High                         1
+```
+
+Let’s break it down:
+- product_views = 3: A simple number, ready to go.
+- category_engagement_bidets = High: Gets encoded into a numeric format.
+- time_on_checkout_sec = 22: Might be normalized so short vs. long visits don’t dominate.
+- cart_abandonment: Already a clean True/False flag.
+- returned_within_24h: Another binary feature, yes/no.
+
+Together, these form the input to the model.
+
+But what’s the output it’s trying to predict?
+
+That’s the label. In this case, label_purchase = 1.  
+It tells the model: “Yes, this user converted.”
+
+Everything else is just clues leading up to that decision.
+
+But be careful. If you accidentally leak label info into your features (like including data from after the purchase), the model will cheat.  
+That’s called data leakage, and it makes your results look great… until they hit the real world.
+
+### Step 3: Model Training
+
+Now that you have clean historical data, you want to predict who will buy next.
+
+To do that, every model training pipeline — no matter how advanced — includes a few core steps:
+
+1. **Train/Test Split**  
+   Before training, the data is split into two groups:
+   - Training data teaches the model how past buyers behaved.
+   - Test data checks if the model can predict future behavior it hasn’t seen.
+
+   This split is how platforms simulate the real world.  
+   Can the model actually predict who will convert next?
+
+2. **Hyperparameter Tuning**  
+   Models aren’t one-size-fits-all. You have to dial in settings like:
+   - How many trees?
+   - How deep should they go?
+   - How many neighbors to consider?
+
+   These are called hyperparameters. Tuning them can be the difference between a decent model and a money-printing machine.
+
+3. **Performance Objectives**  
+   The model’s goal isn’t always accuracy. That’s too simple.  
+   Platforms might optimize for:
+   - ROAS (Return on Ad Spend)
+   - Cost per Acquisition
+   - Conversion lift
+   - Ad engagement
+
+   Each objective changes the math behind the model’s choices.
+
+   If you’re targeting cheap clicks, you’ll get different predictions than if you’re targeting loyal customers.
+
+4. **Validation and Monitoring**  
+   Once trained, the model’s performance is tracked in production.  
+   It’s evaluated on:
+   - Precision (how often it’s right)
+   - Recall (how many buyers it caught)
+   - Lift (how much better it performs than random)
+
+   And most importantly, it’s updated regularly. Human behavior changes fast.
+
+### Step 4: Prediction + Ad Delivery
+
+Once the model is trained and tuned, the platform deploys it — meaning they upload it to some computer that can run predictions on demand.
+
+Now, every time you visit a site, your behavior — clicks, scrolls, time on page — is sent back to this computer, turned into features, and passed through the model.
+
+The result?
+
+```python
+prediction = model.predict_proba(current_features)[1]
+# Output: 0.87
+```
+
+That’s a real-time probability that you’re about to convert. This is ad delivery powered by inference, not influence.
+
+## Why This Looks Like It Works
+
+On paper, this looks amazing. The platform predicted a buyer, showed an ad, and you made a purchase. Dashboards light up. ROAS looks incredible.
+
+But that’s the illusion. It didn’t work because of the ad. It worked because the model predicted you, and the platform jumped in at the last second.
+
+The algorithm looks great on small budgets. It only targets users it’s really confident about. High precision. High return. Looks amazing on paper.
+
+But what happens when you scale?
+
+This is where I show a confusion matrix in my Jupyter notebook.
+
+On the left: the algorithm only targets users it’s 90% sure will buy. Small audience. Almost every ad results in a purchase.
+
+On the right: we lower the bar. Now it targets everyone with even a 50% chance. Bigger audience, but more misses. ROAS drops.
+
+And that’s the point.
+
+Platforms don’t just predict purchases. They cherry-pick attribution.  
+They show you impressive returns on tight targeting… then when you increase budget, performance tanks, but the algorithm still takes credit.
+
+## The Lie Built on Prediction
+
+There’s an old quote in advertising: “Half the money I spend on advertising is wasted — the trouble is, I don’t know which half.”
+
+That was before machine learning.
+
+Today, the platforms know exactly who’s likely to buy.  
+They don’t have to convince anyone — just predict the outcome, fire the ad, and take the credit.
+
+So we still don’t know which half is wasted. Only now, it’s the other half — the half that might have actually needed convincing.
+
+And that’s the irony.
+
+The better these systems get at prediction, the harder it becomes to measure real influence.  
+Because the algorithm isn’t there to change your mind. It’s there to find the people who already made theirs.
+
+And when they buy? It steps in and says: “That was me.”
+
+## If You Actually Want to Know What Works...
+
+Don’t just trust the dashboard. You need to test reality:
+
+- Hold back entire geographies and compare.
+- Run ghost ads to fake users and measure the difference.
+- Freeze campaigns and watch what decays.
+- Build uplift models, not just conversion models.
+
+Because without real-world tests, you’re not measuring impact.  
+You’re measuring prediction.  
+And every time the algorithm gets it right, you’re just more convinced it worked.  
+Even if it didn’t.
+
+
