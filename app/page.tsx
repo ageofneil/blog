@@ -19,13 +19,14 @@ export default function Home() {
     The People Running Your Marketing Campaigns Shouldn’t Be Grading Their Own Work
   </h1>
 
-  <p className="mt-4 text-muted-foreground text-base sm:text-lg leading-relaxed text-balance max-w-4xl mx-auto">
+  <p className="mt-4 justify-center text-muted-foreground text-base sm:text-lg leading-relaxed text-balance max-w-4xl mx-auto">
     Hi, I’m Neil. When marketing owns both execution and reporting, it’s easy for things to get blurry. I bring in third-party measurement to help teams see what’s actually driving results.
+    Let’s figure out the right way to measure your marketing.
   </p>
 
-  <p className="mt-4 text-muted-foreground text-base sm:text-lg leading-relaxed text-balance max-w-4xl mx-auto">
-    Let’s figure out the right way to measure your marketing. Whether that’s Causal Impact, Media Mix Modeling, Incrementality Testing, or something else entirely.
-  </p>
+  <p className="mt-4 justify-center text-muted-foreground text-base sm:text-lg leading-relaxed text-balance max-w-4xl mx-auto">
+    Closed to new work
+  </p> 
           <div className="flex flex-col gap-4 justify-center sm:flex-row">
             <Link
               href="/blog"
