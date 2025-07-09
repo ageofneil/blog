@@ -15,15 +15,17 @@ export default function Home() {
     <AvatarFallback>Neil Turner</AvatarFallback>
   </Avatar>
 </div>
-          <h1 className="text-3xl sm:text-3xl md:text-3xl lg:text-3xl font-black text-balance">
-            The People Running Your Marketing Campaigns Shouldn’t Be Grading Their Own Work
-          </h1>
-          <p className="max-w-[42rem] mx-auto text-muted-foreground sm:text-xl text-balance">
-          Hi, I’m Neil. When marketing owns both execution and reporting, it’s easy for things to get blurry. I bring in third-party measurement to help teams see what’s actually driving results.
-          </p>
-          <p className="max-w-[42rem] mx-auto text-muted-foreground sm:text-xl text-balance">
-          Let’s figure out the right way to measure your marketing. Whether that’s Causal Impact, Media Mix Modeling, Incrementality Testing, or something else entirely.
-          </p>
+<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-balance max-w-3xl mx-auto">
+  The People Running Your Marketing Campaigns Shouldn’t Be Grading Their Own Work
+</h1>
+
+<p className="mt-6 text-muted-foreground text-lg sm:text-xl leading-relaxed text-balance max-w-2xl mx-auto">
+  Hi, I’m Neil. When marketing owns both execution and reporting, it’s easy for things to get blurry. I bring in third-party measurement to help teams see what’s actually driving results.
+</p>
+
+<p className="mt-4 text-muted-foreground text-lg sm:text-xl leading-relaxed text-balance max-w-2xl mx-auto">
+  Let’s figure out the right way to measure your marketing. Whether that’s Causal Impact, Media Mix Modeling, Incrementality Testing, or something else entirely.
+</p>
           <div className="flex flex-col gap-4 justify-center sm:flex-row">
             <Link
               href="/blog"
