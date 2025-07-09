@@ -19,7 +19,7 @@ export default function Home() {
     The People Running Your Marketing Campaigns Shouldn’t Be Grading Their Own Work
   </h1>
 
-  <p className="mt-6 text-muted-foreground text-base sm:text-lg leading-relaxed text-balance max-w-4xl mx-auto">
+  <p className="mt-4 text-muted-foreground text-base sm:text-lg leading-relaxed text-balance max-w-4xl mx-auto">
     Hi, I’m Neil. When marketing owns both execution and reporting, it’s easy for things to get blurry. I bring in third-party measurement to help teams see what’s actually driving results.
   </p>
 
