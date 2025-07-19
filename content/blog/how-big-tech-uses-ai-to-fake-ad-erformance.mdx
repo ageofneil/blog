@@ -6,19 +6,27 @@ tags: ["marketing"]
 published: true
 ---
 
-Without realizing it, you’ve been feeding the most profitable scam in history, and no, it’s not that one weird trick your doctor doesn’t want you to know about. It’s the one weird trick Google, Meta, and TikTok don’t want you to understand. A system so effective it props up hundreds of billions in ad revenue every year,
+Without realizing it, you’ve been feeding the most profitable scam in history, and no, it’s not that one weird trick your doctor doesn’t want you to know about. It’s the one weird trick Google, Meta, and TikTok don’t want you to understand. A system so effective it props up hundreds of billions in ad revenue every year.
 
-You probably didn’t even notice it. Maybe you saw an ad before this article. You skipped it. Moved on. That was all it took. Because the scam isn’t the ad. It’s the algorithm behind the ad. It doesn’t persuade you or change your mind. It watches, waits, and takes credit.
+## How You're Part of the Scam
 
-## How Your Data Feeds the Machine
+Ok, so when a business wants to advertise on Google, Meta, or TikTok, the first thing they do is slap a little piece of code — a pixel — onto their website. Think of it like a digital homing beacon that beams all your activity straight back to the ad platform.
 
-When a business runs ads on Meta, TikTok, or Google, they install that platform’s tracking script on their website. That script turns the site into a live data feed, sending every scroll, product view, and cart event back to the platform’s machine learning engine in near real time.
+Let’s make this real. Say you need new headphones. You visit some online store, scroll around, find a pair you like, toss them in your cart... but then you check your bank account and realize, oh right, payday isn’t until Monday. So you bounce.
 
-Imagine you’re browsing online for headphones. You visit a brand’s website, scroll, click a product, maybe even add it to your cart but don’t buy. Unseen, the business is sending all that behavior, every click and hesitation, back to Meta.
+The next day, your mom's coming over for dinner. You want to impress her with homemade lasagna, but for whatever reason, you forgot ChatGPT exists, so you Google a recipe. You end up on one of those janky recipe blogs plastered with ads. You’re scrolling, trying to get past all the origin stories of Nonna Maria’s tomato sauce just to find the damn ingredients. Ads keep popping up — banners, sidebars, some video you didn’t ask for — and somewhere in that ad soup is one for the headphones you were eyeing.
 
-Meta runs that data through its predictive model, assigning you a probability score for purchase. If you cross a certain threshold, based on factors like your behavior, past ad interactions, and even the business’s ROAS targets, the algorithm decides you’re worth spending on.
+You don’t even notice it. You’re just there for the recipe.
 
-Next time you’re on Instagram, you see the ad. You don’t click it. You were probably going to buy anyway. But Meta logs that impression, and when you check out, it takes the win. That’s the trick. The platform isn’t selling ads; it’s selling outcomes. The ad isn’t there to persuade you to buy, it’s there to persuade a marketing team that it did.
+Fast forward: you nail the lasagna, mom’s happy, and so are you. Payday hits, you head back to the headphone site, and you buy those headphones.
+
+Meanwhile, the marketing team at the headphone company logs into their Google Ads dashboard. They see a conversion. Nice! Their ads must be crushing it. Promotions all around. Somebody tell the CEO.
+
+But here’s the kicker: they’ve been scammed. Google didn’t convince you to buy those headphones. Google just made sure an ad for them showed up somewhere between the lasagna story and the comments about bechamel sauce, so they could claim the win.
+
+That’s the game. The platforms aren’t persuading anyone. They’re predicting who’s likely to buy and making sure an ad gets in front of them just in time to take credit.mAnd the scheme works beautifully because what marketing manager doesn’t want to believe they’re a genius? That their campaign moved the needle. That they deserve that raise. So it keeps spinning. Money flows in. Ad platforms keep getting richer. Marketers keep patting themselves on the back. 
+
+But now that you know, let’s dig deeper. I’ll show you exactly how these models work and how platforms like Google, Meta, and TikTok run this play. Time to get technical.
 
 ## How the Scam Actually Works
 
@@ -28,7 +36,7 @@ It sounds helpful at first: "We’ll show the right ad to the right person at th
 
 ### Step 1: Clickstream Data
 
-Every action you take is logged as a sequence of events and willingly passed on from a business to ad networks like Meta. It might look like this:
+So, every action you take is logged as a sequence of events and willingly passed on from a business to ad networks like Meta. It might look like this:
 
 ```
 user_pseudo_id       event_timestamp       event_name         page_location                       item_name      engagement_time_msec
@@ -39,11 +47,9 @@ user_pseudo_id       event_timestamp       event_name         page_location     
 839a1cfe29d3f8       2024-07-07 12:04:47   remove_from_cart   https://store.google.com/checkout   Classic 3000   2000
 ```
 
-### Step 2: Feature Engineering
+Once they've collected your data, the next step is to transform that chaos into structured signals the computers can learn from. This process is called feature engineering, and the goal is to summarize behavior to help the model spot patterns.
 
-Once you’ve collected raw event data, the next step is to transform that chaos into structured signals the model can learn from. This process is called feature engineering, and the goal is to summarize behavior to help the model spot patterns.
-
-Here’s an example:
+Here’s an example of how the above data might be transfomed for a machine:
 
 ```
 user_pseudo_id       product_views   time_on_checkout_sec   cart_abandonment   returned_within_24h   category_engagement_bidets   label_purchase
@@ -52,11 +58,9 @@ user_pseudo_id       product_views   time_on_checkout_sec   cart_abandonment   r
 
 These form the model’s input, while the output is the label: in this case, label\_purchase = 1, meaning the user converted. Everything else is just clues leading to that decision.
 
-But be careful. If you accidentally leak label info into your features, like including data from after the purchase, the model cheats. That’s data leakage, and it makes your results look great until they hit the real world.
+### Step 2: Model Training
 
-### Step 3: Model Training
-
-With clean historical data, you want to predict who will buy next. Every model training pipeline includes a few core steps:
+With your cleaned up data, they want to predict who will buy next. Every model training pipeline includes a few core steps:
 
 1. **Train/Test Split:** The data is split into training and test sets to simulate the real world. The training data teaches the model; the test data checks its predictive power.
 2. **Hyperparameter Tuning:** Settings like the number of trees or their depth are adjusted to improve performance.
